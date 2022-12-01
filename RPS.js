@@ -1,42 +1,30 @@
-const getcomputerchoice = () => {
-    const arr0fchoices = ["rock", "paper", "scissors"]
-    const randomnum = Math.floor(Math.random() * 3)
-    const compchoice = arr0fchoices[randomnum]
-    return compchoice
+const computerchoice =(compchoice)=> {
+    const choices=["Rock", "Paper", "Scissors"]
+    const random=Math.floor(Math.random()*3)
+    compchoice=choices[random]
+    console.log(compchoice)
 }
 
-
-const playaround = (playerselection, computerselection) => {
-    if (playerselection === "rock" && computerselection === "rock") {
-        return "You tied! You both picked rock."
+const letsplay={
+    if (player==="Rock" && computerchoice==="Rock") {
+        return ("You tie! You both chose Rock")
     }
-    else if (playerselection === "paper" && computerselection === "paper") {
-        return "You tied! You both picked paper"
+    else if (player==="Rock" && computerchoice==="Paper") {
+        return ("You lose! Paper covers rock.")
     }
-    else if (playerselection === "scissors" && computerselection === "scissors") {
-        return "You tied! You both picked scissors"
+    else if (player==="Rock" && computerchoice === "Scissors"){
+        return ("You win! Rock crushes scissors")
     }
-    else if (playerselection === "scissors" && computerselection === "rock") {
-       return "You lose! Rock crushes scissors"
+    else if (player==="Paper" && computerchoice==="Rock"){
+        return ("You win! Paper covers Rock")
     }
-    else if (playerselection === "scissors" && computerselection === "paper") {
-       return "You win! Scissors cut paper"
+    else if (player==="Paper" && computerchoice==="Paper"){
+        return ("You tie! Paper is Paper")
     }
-    else if (playerselection === "paper" && computerselection === "rock") {
-        return "You win! Paper covers rock"
+    else if (player==="paper" && computerchoice==="Scissors"){
+        return ("You lose! Scissors cuts paper")
     }
-    else if (playerselection === "paper" && computerselection === "scissors") {
-        return "You lose! Scissors cuts paper"
-    }
-    else if (playerselection === "rock" && computerselection === "paper") {
-        return "You lose! Paper Covers Rock"
-    }
-    else if (playerselection === "rock" && computerselection === "scissors") {
-        return "You win! Rock crushes scissors"
+    else if (player==="Scissors" && computerchoice==="Paper"){
+        return ("You win! Scissors cuts paper")
     }
 }
-
-const playerselection = "rock";
-const computerselection = getcomputerchoice();
-
-console.log(playaround(playerselection, computerselection));
