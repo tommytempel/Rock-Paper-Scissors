@@ -47,24 +47,23 @@ const play = (player, computerplay) => {
         //No points. 
     }
 
-    const player = "rock";
-    const computerplay = computerchoice();
     
-    game = () => {
+    const game = () => {
     for (let i = 0; i < 5; i++) {
-        console.log(play(player, computerplay));
+        const player = prompt("Choose a play bitch.").toLowerCase()
+        const computerplay = computerchoice();
+        play(player, computerplay);
+        console.log(play(player,computerplay))
      }
-     if (playerscore>computerscore){
-     return ("You win!")
+     if (playerscore>computerscore) {
+        alert ("You win! You aren't that dumb afterall")
      }
-     else if(computerscore>playerscore){
-        return ("You suck ass! Try again.")
+     else if (computerscore>playerscore){
+        return alert ("You lose! Stop being a dumbass")
      }
      }
 
 game()
     
-
-
 
 
