@@ -1,69 +1,66 @@
-let playerscore=0
-let computerscore=0
+let playerScore=0
+let computerScore=0
 
-const computerchoice =(compchoice)=> {
-    const choices=["rock", "paper", "scissors"]
+const getComputerChoice = (compchoice) => {
+    const options=["rock", "paper", "scissors"]
     const random=Math.floor(Math.random()*3)
-    compchoice=choices[random]
-    return compchoice
+    compchoice = options[random]
+    return (compchoice)
 }
 
-const play = (player, computerplay) => {
-        if (player==="rock" && computerplay==="rock") {
-            return ("You tie! You both chose Rock")
-        }
-        //No points for a tie.
-        else if (player==="rock" && computerplay==="paper") {
-            computerscore++
-            return ("You lose! Paper covers rock.")
-        }
-        else if (player==="rock" && computerplay === "scissors"){
-            playerscore++
-            return ("You win! Rock crushes scissors")
-        }
-        else if (player==="paper" && computerplay==="rock"){
-            playerscore++
-            return ("You win! Paper covers Rock")
-        }      
-        else if (player==="paper" && computerplay==="paper"){
-            return ("You tie! Paper is Paper")
-        }
-        //No points.
-        else if (player==="paper" && computerplay==="scissors"){
-            computerscore++
-            return ("You lose! Scissors cuts paper")
-        }
-        else if (player==="scissors" && computerplay==="paper"){
-            playerscore++
-            return ("You win! Scissors cuts paper")
-        }
-        else if (player==="scissors" && computerplay=="rock") {
-            computerscore++
-            return ("You lose! Rock crushes Scissors")
-        }
-        else if (player==="scissors" && computerplay==="scissors") {
-            return ("You tie! Scissors are Scissors")
-        }
-        //No points. 
+const letsplay = (playerSelection,computerSelection) =>{
+    if (playerSelection === "rock" && computerSelection === "rock"){
+        return "You tie! you both chose rock"
     }
+    else if (playerSelection === "paper" && computerSelection === "paper"){
+        return "You tie! you both chose paper"
+    }
+    if (playerSelection === "scissors" && computerSelection === "scissors"){
+        return "You tie! you both chose scissors"
+    }
+    //No points for above as it is a tie. 
+    else if (playerSelection==="rock" && computerSelection ==="paper"){
+        computerScore++
+        return ("You lose! Paper crushes rock")
+    }
+    else if (playerSelection==="rock" && computerSelection ==="scissors"){
+        playerScore++
+        return ("You win! Rock crushes scissors")
+    }
+    else if (playerSelection==="paper" && computerSelection ==="rock"){
+        playerScore++
+        return ("You win! Paper covers rock.")
+    }
+    else if (playerSelection==="paper" && computerSelection ==="scissors"){
+        computerScore++
+        return ("You lose! Scissors cuts paper.")
+    }
+    else if (playerSelection==="scissors" && computerSelection ==="paper"){
+        playerScore++
+        return ("You win! Scissors cuts paper")
+    }
+    else if (playerSelection==="scissors" && computerSelection ==="rock"){
+        computerScore++
+        return ("You lose! Rock crushes scissors")
+    }
+}
 
-    
-    const game = () => {
-    for (let i = 0; i < 5; i++) {
-        const player = prompt("Choose a play bitch.").toLowerCase()
-        const computerplay = computerchoice();
-        play(player, computerplay);
-        console.log(play(player,computerplay))
-     }
-     if (playerscore>computerscore) {
-        alert ("You win! You aren't that dumb afterall")
-     }
-     else if (computerscore>playerscore){
-        return alert ("You lose! Stop being a dumbass")
-     }
-     }
+
+
+const game = () => {
+    for (let i=0; i<5; i++) {
+        const playerSelection=prompt("What will you choose?","Rock, Paper or Scissors").toLowerCase;
+        const computerSelection=getComputerChoice();
+        letsplay()
+        console.log(letsplay(playerSelection, computerSelection));  
+    }
+    if (playerScore>computerScore) {
+        return "You win the game!"
+    }
+    else if (playerScore<computerScore) {
+        return "You lose! Do better next time"
+    }
+}
 
 game()
-    
-
 
