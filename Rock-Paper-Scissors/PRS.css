@@ -1,0 +1,29 @@
+body {
+    background-color: darkblue;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.game{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: 50px;
+}
+
+.button{
+    margin: 50px;
+}
+
+.img {
+    width: 250px;
+    height: 250px;
+}
